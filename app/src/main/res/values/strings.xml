@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BanglaLens</string>
+    <string name="menu_label">বাংলা ⇄ English</string>
+    <string name="auto_direction">English ⇄ বাংলা (auto)</string>
+    <string name="en_to_bn">English → বাংলা</string>
+    <string name="bn_to_en">বাংলা → English</string>
+    <string name="input_hint">Type or paste English / বাংলা</string>
+    <string name="paste">Paste</string>
+    <string name="copy">Copy</string>
+    <string name="replace">Replace</string>
+    <string name="translate">Translate</string>
+    <string name="copied">Copied</string>
+    <string name="clipboard_empty">Clipboard is empty. Copy some text first.</string>
+    <string name="nothing_to_translate">Type or paste some text first.</string>
+    <string name="translate_failed">Translation failed. The offline model needs internet once to download. Connect and tap Translate again.</string>
+    <string name="downloading_model">Downloading offline model (one time, ~30 MB)…</string>
+    <string name="engine_online">online</string>
+    <string name="engine_offline">offline</string>
+    <string name="direction_engine">%1$s (%2$s)</string>
+</resources>

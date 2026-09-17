@@ -1,0 +1,8 @@
+<resources>
+    <style name="Lens" parent="android:Theme.Material.Dialog.NoActionBar">
+        <item name="android:windowMinWidthMajor">92%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="android:colorAccent">@color/green</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+</resources>
