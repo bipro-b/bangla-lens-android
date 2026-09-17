@@ -22,8 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Shows up in the text-selection menu of every app -->
-            <intent-filter android:label="@string/menu_label">
+            <!-- Shows up in the text-selection menu of every app.
+                 The platform puts every PROCESS_TEXT app after Copy/Share/Select all
+                 (Editor.java pins those at order 4-11 and third-party ones at 100+),
+                 so priority only decides our rank among the other text-processing
+                 apps - which is what pushes us to the top of the overflow list. -->
+            <intent-filter android:label="@string/menu_label" android:priority="999">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
