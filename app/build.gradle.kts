@@ -15,13 +15,27 @@ android {
         versionName = "1.0"
     }
 
+    // A real upload key when KEYSTORE_PATH is set (CI secrets), debug key otherwise.
+    // The debug key differs per machine, so debug-signed builds can't upgrade each other.
+    val keystorePath: String? = System.getenv("KEYSTORE_PATH")?.takeIf { it.isNotBlank() }
+
+    signingConfigs {
+        if (keystorePath != null) {
+            create("upload") {
+                storeFile = file(keystorePath)
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            // Sideload-friendly: signed with debug key. Swap for a real keystore before Play Store.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName(if (keystorePath != null) "upload" else "debug")
         }
     }
 
